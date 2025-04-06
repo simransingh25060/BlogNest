@@ -100,15 +100,16 @@ export default function PostForm({ post }) {
                     accept="image/png, image/jpg, image/jpeg, image/gif"
                     {...register("image", { required: !post })}
                 />
-                {post && (
-                    <div className="w-full mb-4">
-                        <img
-                            src={appwriteService.getFilePreview(post.featuredImage)}
-                            alt={post.title}
-                            className="rounded-lg"
-                        />
-                    </div>
-                )}
+                {post?.featuredImage && (
+    <div className="w-full mb-4">
+        <img
+            src={appwriteService.getFilePreview(post.featuredImage)}
+            alt={post.title}
+            className="rounded-lg"
+        />
+    </div>
+)}
+
                 <Select
                     options={["active", "inactive"]}
                     label="Status"
